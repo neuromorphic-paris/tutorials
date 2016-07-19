@@ -2,6 +2,6 @@
 
 # Tutorials
 
-Tutorials provides step-by-step guides to learn how to use the [Sepia](https://github.com/aMarcireau/sepia), [Tarsier](https://github.com/aMarcireau/tarsier) and [Chameleon](https://github.com/aMarcireau/chameleon) libraries.
+Tutorials provides step-by-step guides to learn how to use the [Sepia](https://github.com/neuromorphic-paris/sepia), [Tarsier](https://github.com/neuromorphic-paris/tarsier) and [Chameleon](https://github.com/neuromorphic-paris/chameleon) libraries.
 
-All the tutorials are held in the [wiki](https://github.com/aMarcireau/tutorials/wiki).
+All the tutorials are held in the [wiki](https://github.com/neuromorphic-paris/tutorials/wiki).
