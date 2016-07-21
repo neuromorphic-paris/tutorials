@@ -44,6 +44,7 @@ Item {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             canvasSize: "304x240"
             decay: 5e5
+            initialTimestamp: 0
         }
 
         LogarithmicDisplay {
