@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
                 changeDetectionDisplay->push(changeDetection);
             },
             tarsier::make_stitch<sepia::ThresholdCrossing, ExposureMeasurement>(
-                opalKellyAtisSepia::Camera::size,
+                opalKellyAtisSepia::Camera::size(),
                 [](sepia::ThresholdCrossing secondThresholdCrossing, uint64_t timeDelta) -> ExposureMeasurement {
                     return ExposureMeasurement{secondThresholdCrossing.x, secondThresholdCrossing.y, timeDelta};
                 },
