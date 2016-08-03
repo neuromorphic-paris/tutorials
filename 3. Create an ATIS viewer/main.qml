@@ -5,7 +5,7 @@ import ChangeDetectionDisplay 1.0
 import LogarithmicDisplay 1.0
 
 Item {
-    id: item1
+    id: root
     visible: true
     width: 304 * 2 + 10 * 3
     height: 240 + 10 * 2
