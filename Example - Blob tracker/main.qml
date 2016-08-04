@@ -5,7 +5,6 @@ import ChangeDetectionDisplay 1.0
 import BlobDisplay 1.0
 
 Item {
-    id: root
     visible: true
     width: 304
     height: 240
