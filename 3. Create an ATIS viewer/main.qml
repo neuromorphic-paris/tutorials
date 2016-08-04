@@ -5,7 +5,6 @@ import ChangeDetectionDisplay 1.0
 import LogarithmicDisplay 1.0
 
 Item {
-    id: root
     visible: true
     width: 304 * 2 + 10 * 3
     height: 240 + 10 * 2
@@ -28,7 +27,6 @@ Item {
     }
 
     RowLayout {
-        id: rowLayout
         anchors.rightMargin: 10
         anchors.leftMargin: 10
         anchors.bottomMargin: 10
