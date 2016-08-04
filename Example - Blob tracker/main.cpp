@@ -24,9 +24,6 @@ int main(int argc, char *argv[]) {
     auto blobDisplay = view.rootObject()->findChild<chameleon::BlobDisplay*>("blobDisplay");
     auto hiddenBlobDisplay = view.rootObject()->findChild<chameleon::BlobDisplay*>("hiddenBlobDisplay");
 
-    const auto initialSigmaXSquare = 250;
-    const auto initialSigmaYSquare = 250;
-
     auto camera = opalKellyAtisSepia::make_camera(
         sepia::make_split(
             tarsier::make_maskIsolated<sepia::ChangeDetection>(
@@ -36,30 +33,30 @@ int main(int argc, char *argv[]) {
                 tarsier::make_replicate<sepia::ChangeDetection>(
                     tarsier::make_trackBlobs<sepia::ChangeDetection>(
                         {
-                            tarsier::Blob{38 * 1, 40 * 1, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 3, 40 * 1, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 5, 40 * 1, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 7, 40 * 1, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 1, 40 * 3, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 3, 40 * 3, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 5, 40 * 3, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 7, 40 * 3, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 1, 40 * 5, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 3, 40 * 5, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 5, 40 * 5, initialSigmaXSquare, 0, initialSigmaYSquare},
-                            tarsier::Blob{38 * 7, 40 * 5, initialSigmaXSquare, 0, initialSigmaYSquare},
+                            tarsier::Blob{38 * 1, 40 * 1, 250, 0, 250},
+                            tarsier::Blob{38 * 3, 40 * 1, 250, 0, 250},
+                            tarsier::Blob{38 * 5, 40 * 1, 250, 0, 250},
+                            tarsier::Blob{38 * 7, 40 * 1, 250, 0, 250},
+                            tarsier::Blob{38 * 1, 40 * 3, 250, 0, 250},
+                            tarsier::Blob{38 * 3, 40 * 3, 250, 0, 250},
+                            tarsier::Blob{38 * 5, 40 * 3, 250, 0, 250},
+                            tarsier::Blob{38 * 7, 40 * 3, 250, 0, 250},
+                            tarsier::Blob{38 * 1, 40 * 5, 250, 0, 250},
+                            tarsier::Blob{38 * 3, 40 * 5, 250, 0, 250},
+                            tarsier::Blob{38 * 5, 40 * 5, 250, 0, 250},
+                            tarsier::Blob{38 * 7, 40 * 5, 250, 0, 250},
                         },
-                        0,    // initialTimestamp
-                        1e5,  // activityDecay
-                        0,    // minimumProbability
-                        1,  // promotionActivity
-                        0.1,    // deletionActivity
-                        0.99,  // meanInertia
-                        0.99,  // covarianceInertia
-                        1,  // repulsionStrength
-                        20,   // repulsionLength
-                        0.05,  // attractionStrength
-                        100,   // attractionResetDistance
+                            0, // initialTimestamp
+                          1e5, // activityDecay
+                            0, // minimumProbability
+                            1, // promotionActivity
+                          0.1, // deletionActivity
+                         0.99, // meanInertia
+                         0.99, // covarianceInertia
+                            1, // repulsionStrength
+                           20, // repulsionLength
+                         0.05, // attractionStrength
+                          100, // attractionResetDistance
                         10000, // pairwiseCalculationsToSkip
                         [blobDisplay](std::size_t id, const tarsier::Blob& blob) {
                             blobDisplay->promoteBlob(id, blob);
@@ -70,9 +67,6 @@ int main(int argc, char *argv[]) {
                         [blobDisplay](std::size_t id, const tarsier::Blob& blob) {
                             blobDisplay->demoteBlob(id, blob);
                         },
-                        [blobDisplay](std::size_t id, const tarsier::Blob& blob) {
-                            blobDisplay->deleteBlob(id, blob);
-                        },
                         [hiddenBlobDisplay](std::size_t id, const tarsier::Blob& blob) {
                             hiddenBlobDisplay->promoteBlob(id, blob);
                         },
@@ -82,7 +76,8 @@ int main(int argc, char *argv[]) {
                         [hiddenBlobDisplay](std::size_t id, const tarsier::Blob& blob) {
                             hiddenBlobDisplay->demoteBlob(id, blob);
                         },
-                        [hiddenBlobDisplay](std::size_t id, const tarsier::Blob& blob) {
+                        [blobDisplay, hiddenBlobDisplay](std::size_t id, const tarsier::Blob& blob) {
+                            blobDisplay->deleteBlob(id, blob);
                             hiddenBlobDisplay->deleteBlob(id, blob);
                         }
                     ),
