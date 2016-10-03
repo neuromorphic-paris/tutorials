@@ -4,7 +4,7 @@
 
 /// handleEvent is an event callback for a camera.
 void handleEvent(sepia::Event event) {
-    if (event.isExposureMeasurement) {
+    if (event.isThresholdCrossing) {
         std::cout << "|";
     } else {
         std::cout << "-";
