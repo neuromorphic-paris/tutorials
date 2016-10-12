@@ -28,7 +28,7 @@ Item {
         interval: 40000
         initialTimestamp: 0
         anchors.fill: parent
-        directory: "/path/to/the/recorded/frames/directory"
+        directory: '/path/to/the/recorded/frames/directory'
         onRendered: {
             var discards = logarithmicDisplay.discards;
             console.log('Shot index:', shotIndex, ', timestamp:', timestamp, ', black discard:', discards.x, ', white discard:', discards.y);
