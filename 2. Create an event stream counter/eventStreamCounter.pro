@@ -5,4 +5,4 @@ CONFIG -= qt
 
 SOURCES += main.cpp
 INCLUDEPATH += /usr/local/include
-LIBS += -L/usr/local/lib -lopalkellyfrontpanel -lpthread
+LIBS += -L/usr/local/lib -lpthread

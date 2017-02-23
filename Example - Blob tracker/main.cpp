@@ -1,4 +1,4 @@
-#include <opalKellyAtisSepia.hpp>
+#include <sepia.hpp>
 #include <tarsier/maskIsolated.hpp>
 #include <tarsier/replicate.hpp>
 #include <tarsier/trackBlobs.hpp>
@@ -24,11 +24,12 @@ int main(int argc, char *argv[]) {
     auto blobDisplay = view.rootObject()->findChild<chameleon::BlobDisplay*>("blobDisplay");
     auto hiddenBlobDisplay = view.rootObject()->findChild<chameleon::BlobDisplay*>("hiddenBlobDisplay");
 
-    auto camera = opalKellyAtisSepia::make_camera(
+    auto eventStreamObservable = sepia::make_eventStreamObservable(
+        "/Users/Alex/idv/libraries/sepia/test/sepiaTest.es",
         sepia::make_split(
             tarsier::make_maskIsolated<sepia::ChangeDetection>(
-                opalKellyAtisSepia::Camera::width(),
-                opalKellyAtisSepia::Camera::height(),
+                304,
+                240,
                 10000,
                 tarsier::make_replicate<sepia::ChangeDetection>(
                     tarsier::make_trackBlobs<sepia::ChangeDetection>(
@@ -46,7 +47,6 @@ int main(int argc, char *argv[]) {
                             tarsier::Blob{38 * 5, 40 * 5, 250, 0, 250},
                             tarsier::Blob{38 * 7, 40 * 5, 250, 0, 250},
                         },
-                            0, // initialTimestamp
                           1e5, // activityDecay
                             0, // minimumProbability
                             1, // promotionActivity

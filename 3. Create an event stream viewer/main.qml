@@ -5,6 +5,7 @@ import ChangeDetectionDisplay 1.0
 import LogarithmicDisplay 1.0
 
 Item {
+    id: item
     visible: true
     width: 304 * 2 + 10 * 3
     height: 240 + 10 * 2
@@ -22,8 +23,8 @@ Item {
 
     BackgroundCleaner {
         id: backgroundCleaner
-        anchors.fill: parent
-        color: "#000000"
+        width: item.width
+        height: item.height
     }
 
     RowLayout {
@@ -41,8 +42,6 @@ Item {
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             canvasSize: "304x240"
-            decay: 5e5
-            initialTimestamp: 0
         }
 
         LogarithmicDisplay {
@@ -52,8 +51,6 @@ Item {
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             canvasSize: "304x240"
-            discardRatio: 0.01
-            colormap: LogarithmicDisplay.Heat
         }
     }
 }
