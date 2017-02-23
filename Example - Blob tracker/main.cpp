@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     auto hiddenBlobDisplay = view.rootObject()->findChild<chameleon::BlobDisplay*>("hiddenBlobDisplay");
 
     auto eventStreamObservable = sepia::make_eventStreamObservable(
-        "/Users/Alex/idv/libraries/sepia/test/sepiaTest.es",
+        "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
             tarsier::make_maskIsolated<sepia::ChangeDetection>(
                 304,
