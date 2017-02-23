@@ -1,8 +1,8 @@
-#include <opalKellyAtisSepia.hpp>
+#include <sepia.hpp>
 
 #include <iostream>
 
-/// handleEvent is an event callback for a camera.
+/// handleEvent is an event callback for an event stream observable.
 void handleEvent(sepia::Event event) {
     if (event.isThresholdCrossing) {
         std::cout << "|";
@@ -12,11 +12,11 @@ void handleEvent(sepia::Event event) {
     std::cout.flush();
 }
 
-/// handleException does nothing
+/// handleException does nothing.
 void handleException(std::exception_ptr) {}
 
 int main() {
-    auto camera = opalKellyAtisSepia::make_camera(handleEvent, handleException);
+    auto eventStreamObservable = sepia::make_eventStreamObservable("/Users/Bob/Desktop/recording.es", handleEvent, handleException);
 
     for (;;) {}
 

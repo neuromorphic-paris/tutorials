@@ -5,6 +5,7 @@ import ChangeDetectionDisplay 1.0
 import BlobDisplay 1.0
 
 Item {
+    id: item
     visible: true
     width: 304
     height: 240
@@ -23,17 +24,16 @@ Item {
 
     BackgroundCleaner {
         id: backgroundCleaner
-        anchors.fill: parent
-        color: "#000000"
+        width: item.width
+        height: item.height
     }
 
     ChangeDetectionDisplay {
         objectName: "changeDetectionDisplay"
         id: changeDetectionDisplay
-        anchors.fill: parent
+        width: item.width
+        height: item.height
         canvasSize: "304x240"
-        decay: 5e5
-        initialTimestamp: 0
         onPaintAreaChanged: {
             blobDisplay.width = paintArea.width
             blobDisplay.height = paintArea.height
