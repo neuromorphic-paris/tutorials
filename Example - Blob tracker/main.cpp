@@ -27,10 +27,7 @@ int main(int argc, char *argv[]) {
     auto eventStreamObservable = sepia::make_eventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
-            tarsier::make_maskIsolated<sepia::ChangeDetection>(
-                304,
-                240,
-                10000,
+            tarsier::make_maskIsolated<sepia::ChangeDetection, 304, 240, 10000>(
                 tarsier::make_replicate<sepia::ChangeDetection>(
                     tarsier::make_trackBlobs<sepia::ChangeDetection>(
                         {
