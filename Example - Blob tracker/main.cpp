@@ -15,7 +15,13 @@ int main(int argc, char *argv[]) {
     qmlRegisterType<chameleon::ChangeDetectionDisplay>("ChangeDetectionDisplay", 1, 0, "ChangeDetectionDisplay");
     qmlRegisterType<chameleon::BlobDisplay>("BlobDisplay", 1, 0, "BlobDisplay");
 
+    QSurfaceFormat format;
+    format.setDepthBufferSize(24);
+    format.setStencilBufferSize(8);
+    format.setVersion(3, 3);
+    format.setProfile(QSurfaceFormat::CoreProfile);
     QQuickView view;
+    view.setFormat(format);
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl("qrc:/main.qml"));
     view.show();
