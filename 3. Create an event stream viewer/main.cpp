@@ -8,8 +8,8 @@
 
 /// ExposureMeasurement holds the parameters of an exposure measurement.
 struct ExposureMeasurement {
-    size_t x;
-    size_t y;
+    std::size_t x;
+    std::size_t y;
     uint64_t timeDelta;
 };
 

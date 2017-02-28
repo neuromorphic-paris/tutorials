@@ -24,7 +24,13 @@ int main(int argc, char *argv[]) {
     qmlRegisterType<chameleon::LogarithmicDisplay>("LogarithmicDisplay", 1, 0, "LogarithmicDisplay");
     qmlRegisterType<chameleon::FrameGenerator>("FrameGenerator", 1, 0, "FrameGenerator");
 
+    QSurfaceFormat format;
+    format.setDepthBufferSize(24);
+    format.setStencilBufferSize(8);
+    format.setVersion(3, 3);
+    format.setProfile(QSurfaceFormat::CoreProfile);
     QQuickView view;
+    view.setFormat(format);
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl("qrc:/main.qml"));
     view.show();
