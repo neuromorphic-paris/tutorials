@@ -8,4 +8,4 @@ All the tutorials are held in the [wiki](https://github.com/neuromorphic-paris/t
 
 # License
 
-See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
+See the [LICENSE](LICENSE.txt) file for license rights and limitations (GNU GPLv3).
