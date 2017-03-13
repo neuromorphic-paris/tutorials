@@ -5,7 +5,7 @@ CONFIG -= qt
 
 SOURCES += main.cpp
 
-# Added by Alex
+# Added 
 INCLUDEPATH += /usr/local/include
 LIBS += -L/usr/local/lib -lpthread -lSDL2
 
