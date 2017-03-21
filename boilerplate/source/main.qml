@@ -1,5 +1,4 @@
 import QtQuick 2.3
-import QtQuick.Layouts 1.1
 import BackgroundCleaner 1.0
 import ChangeDetectionDisplay 1.0
 
