@@ -15,9 +15,9 @@ solution 'myProject'
             '/usr/local/include/chameleon/backgroundCleaner.hpp',
             '/usr/local/include/chameleon/changeDetectionDisplay.hpp',
         }
-        local mocCommand = '/usr/local/Cellar/qt5/5.8.0_1/bin/moc' -- must point to the moc executable
-        local qtIncludeDirectory = '/usr/local/Cellar/qt5/5.8.0_1/include' -- must point to the directory containing Qt's headers
-        local qtLibDirectory = '/usr/local/Cellar/qt5/5.8.0_1/lib' -- must point to the directory containing Qt's dynamic libraries
+        local mocCommand = '/usr/lib/x86_64-linux-gnu/qt5/bin/moc' -- must point to the moc executable
+        local qtIncludeDirectory = '/usr/include/x86_64-linux-gnu/qt5' -- must point to the directory containing Qt's headers
+        local qtLibDirectory = '/usr/lib/x86_64-linux-gnu' -- must point to the directory containing Qt's dynamic libraries
         local mocDirectory = path.getdirectory(_SCRIPT) .. '/build/moc'
         os.rmdir(mocDirectory)
         os.mkdir(mocDirectory)
@@ -36,7 +36,8 @@ solution 'myProject'
         includedirs {qtIncludeDirectory, qtIncludeDirectory .. '/QtGui', qtIncludeDirectory .. '/QtQml'}
         configuration 'linux'
             libdirs {qtLibDirectory}
-            links {'Qt5Core', 'Qt5Gui', 'Qt5Qml', 'Qt5Quick', 'Qt5QuickControls'}
+            links {'Qt5Core', 'Qt5Gui', 'Qt5Qml', 'Qt5Quick'}
+            buildoptions {'-fPIC'}
         configuration 'macosx'
             linkoptions {
                 '-F' .. qtLibDirectory,
