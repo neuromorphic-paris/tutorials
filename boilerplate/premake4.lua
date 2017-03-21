@@ -22,7 +22,7 @@ solution 'myProject'
         os.rmdir(mocDirectory)
         os.mkdir(mocDirectory)
         for index, mocFile in pairs(mocFiles) do
-            if os.execute('moc'
+            if os.execute(qtPath .. '/bin/moc'
                 .. ' -I' .. qtPath .. '/include/QtQml'
                 .. ' -o ' .. mocDirectory .. '/' .. path.getbasename(mocFile) .. '.cpp '
                 .. mocFile
