@@ -28,17 +28,17 @@ int main(int argc, char *argv[]) {
     QQuickView view;
     view.setFormat(format);
     view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl("qrc:/main.qml"));
+    view.setSource(QUrl::fromLocalFile("../../source/main.qml"));
     view.show();
 
     auto changeDetectionDisplay = view.rootObject()->findChild<chameleon::ChangeDetectionDisplay*>("changeDetectionDisplay");
     auto logarithmicDisplay = view.rootObject()->findChild<chameleon::LogarithmicDisplay*>("logarithmicDisplay");
 
-    auto eventStreamObservable = sepia::make_eventStreamObservable(
+    auto eventStreamObservable = sepia::make_atisEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
-            [changeDetectionDisplay](sepia::ChangeDetection changeDetection) -> void {
-                changeDetectionDisplay->push(changeDetection);
+            [changeDetectionDisplay](sepia::DvsEvent dvsEvent) -> void {
+                changeDetectionDisplay->push(dvsEvent);
             },
             tarsier::make_stitch<sepia::ThresholdCrossing, ExposureMeasurement, 304, 240>(
                 [](sepia::ThresholdCrossing secondThresholdCrossing, uint64_t timeDelta) -> ExposureMeasurement {
