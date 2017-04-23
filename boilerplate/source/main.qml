@@ -22,7 +22,6 @@ Item {
         id: backgroundCleaner
         width: item.width
         height: item.height
-        color: "#657b83"
     }
 
     ChangeDetectionDisplay {
@@ -31,9 +30,5 @@ Item {
         width: item.width
         height: item.height
         canvasSize: "304x240"
-        backgroundColor: "#657b83"
-        increaseColor: "#fdf6e3"
-        idleColor: "#657b83"
-        decreaseColor: "#002b36"
     }
 }

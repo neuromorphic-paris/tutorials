@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
                 // Lambda functions are easier to write than standalone event handlers such as mySeriousEventHandler.
                 // However they are not re-usable and require global variables to hold a state.
                 // As such, lambda functions should be used only for fast prototyping or to push events to the Chameleon library's displays.
-                [changeDetectionDisplay](sepia::ChangeDetection changeDetection) -> void {
+                [&](sepia::ChangeDetection changeDetection) -> void {
                     const auto xCenter = 152.0;
                     const auto yCenter = 120.0;
                     const auto xDelta = changeDetection.x - xCenter;

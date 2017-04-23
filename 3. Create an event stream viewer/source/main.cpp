@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
                 [](sepia::ThresholdCrossing secondThresholdCrossing, uint64_t timeDelta) -> ExposureMeasurement {
                     return ExposureMeasurement{secondThresholdCrossing.x, secondThresholdCrossing.y, timeDelta};
                 },
-                [logarithmicDisplay](ExposureMeasurement exposureMeasurement) -> void {
+                [&](ExposureMeasurement exposureMeasurement) -> void {
                     logarithmicDisplay->push(exposureMeasurement);
                 }
             )

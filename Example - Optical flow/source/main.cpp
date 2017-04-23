@@ -30,50 +30,46 @@ int main(int argc, char *argv[]) {
     format.setProfile(QSurfaceFormat::CoreProfile);
     QQuickView view;
     view.setFormat(format);
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
+    view.setSource(QUrl::fromLocalFile("../../source/main.qml"));
     view.setSource(QUrl("qrc:/main.qml"));
     view.show();
 
     auto changeDetectionDisplay = view.rootObject()->findChild<chameleon::ChangeDetectionDisplay*>("changeDetectionDisplay");
     auto flowDisplay = view.rootObject()->findChild<chameleon::FlowDisplay*>("flowDisplay");
 
-    auto computeOnEventsFlow = tarsier::make_computeFlow<sepia::ChangeDetection, FlowEvent, 304, 240, 2, 15, 1000000>(
-        [](sepia::ChangeDetection changeDetection, double vx, double vy) -> FlowEvent {
+    auto computeOnEventsFlow = tarsier::make_computeFlow<sepia::DvsEvent, FlowEvent, 304, 240, 2, 15, 1000000>(
+        [](sepia::DvsEvent changeDetection, double vx, double vy) -> FlowEvent {
             return FlowEvent{changeDetection.x, changeDetection.y, changeDetection.timestamp, vx, vy};
         },
-        [flowDisplay](FlowEvent flowEvent) -> void {
+        [&](FlowEvent flowEvent) -> void {
             flowDisplay->push(flowEvent);
         }
     );
-    auto computeOffEventsFlow = tarsier::make_computeFlow<sepia::ChangeDetection, FlowEvent, 304, 240, 2, 15, 1000000>(
-        [](sepia::ChangeDetection changeDetection, double vx, double vy) -> FlowEvent {
+    auto computeOffEventsFlow = tarsier::make_computeFlow<sepia::DvsEvent, FlowEvent, 304, 240, 2, 15, 1000000>(
+        [](sepia::DvsEvent changeDetection, double vx, double vy) -> FlowEvent {
             return FlowEvent{changeDetection.x, changeDetection.y, changeDetection.timestamp, vx, vy};
         },
-        [flowDisplay](FlowEvent flowEvent) -> void {
+        [&](FlowEvent flowEvent) -> void {
             flowDisplay->push(flowEvent);
         }
     );
 
-    auto eventStreamObservable = sepia::make_eventStreamObservable(
+    auto eventStreamObservable = sepia::make_sepiaEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
-            tarsier::make_maskIsolated<sepia::ChangeDetection, 304, 240, 1000>(
-                [changeDetectionDisplay, &computeOnEventsFlow, &computeOffEventsFlow](sepia::ChangeDetection changeDetection) -> void {
-                    changeDetectionDisplay->push(changeDetection);
-                    if (changeDetection.isIncrease) {
-                        computeOnEventsFlow(changeDetection);
+            tarsier::make_maskIsolated<sepia::DvsEvent, 304, 240, 1000>(
+                [&](sepia::DvsEvent dvsEvent) -> void {
+                    changeDetectionDisplay->push(dvsEvent);
+                    if (dvsEvent.isIncrease) {
+                        computeOnEventsFlow(dvsEvent);
                     } else {
-                        computeOffEventsFlow(changeDetection);
+                        computeOffEventsFlow(dvsEvent);
                     }
                 }
             ),
             [](sepia::ThresholdCrossing) {}
         ),
-        [](std::exception_ptr) {},
-        sepia::EventStreamObservable::Dispatch::synchronouslyButSkipOffset,
-        []() -> bool {
-            return true;
-        }
+        [](std::exception_ptr) {}
     );
 
     return app.exec();

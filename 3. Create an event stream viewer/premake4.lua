@@ -16,9 +16,9 @@ solution 'eventStreamViewer'
             '/usr/local/include/chameleon/changeDetectionDisplay.hpp',
             '/usr/local/include/chameleon/logarithmicDisplay.hpp',
         }
-        local mocCommand = '/usr/local/Cellar/qt5/5.8.0_2/bin/moc' -- must point to the moc executable
-        local qtIncludeDirectory = '/usr/local/Cellar/qt5/5.8.0_2/include' -- must point to the directory containing Qt's headers
-        local qtLibDirectory = '/usr/local/Cellar/qt5/5.8.0_2/lib' -- must point to the directory containing Qt's dynamic libraries
+        local mocCommand = '/usr/lib/x86_64-linux-gnu/qt5/bin/moc' -- must point to the moc executable
+        local qtIncludeDirectory = '/usr/include/x86_64-linux-gnu/qt5' -- must point to the directory containing Qt's headers
+        local qtLibDirectory = '/usr/lib/x86_64-linux-gnu' -- must point to the directory containing Qt's dynamic libraries
         local mocDirectory = path.getdirectory(_SCRIPT) .. '/build/moc'
         os.rmdir(mocDirectory)
         os.mkdir(mocDirectory)

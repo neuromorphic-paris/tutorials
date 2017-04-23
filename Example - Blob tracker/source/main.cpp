@@ -23,19 +23,19 @@ int main(int argc, char *argv[]) {
     QQuickView view;
     view.setFormat(format);
     view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl("qrc:/main.qml"));
+    view.setSource(QUrl::fromLocalFile("../../source/main.qml"));
     view.show();
 
     auto changeDetectionDisplay = view.rootObject()->findChild<chameleon::ChangeDetectionDisplay*>("changeDetectionDisplay");
     auto blobDisplay = view.rootObject()->findChild<chameleon::BlobDisplay*>("blobDisplay");
     auto hiddenBlobDisplay = view.rootObject()->findChild<chameleon::BlobDisplay*>("hiddenBlobDisplay");
 
-    auto eventStreamObservable = sepia::make_eventStreamObservable(
+    auto eventStreamObservable = sepia::make_atisEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
-            tarsier::make_maskIsolated<sepia::ChangeDetection, 304, 240, 10000>(
-                tarsier::make_replicate<sepia::ChangeDetection>(
-                    tarsier::make_trackBlobs<sepia::ChangeDetection>(
+            tarsier::make_maskIsolated<sepia::DvsEvent, 304, 240, 10000>(
+                tarsier::make_replicate<sepia::DvsEvent>(
+                    tarsier::make_trackBlobs<sepia::DvsEvent>(
                         {
                             tarsier::Blob{38 * 1, 40 * 1, 250, 0, 250},
                             tarsier::Blob{38 * 3, 40 * 1, 250, 0, 250},
@@ -61,31 +61,31 @@ int main(int argc, char *argv[]) {
                          0.05, // attractionStrength
                           100, // attractionResetDistance
                         10000, // pairwiseCalculationsToSkip
-                        [blobDisplay](std::size_t id, const tarsier::Blob& blob) {
+                        [&](std::size_t id, const tarsier::Blob& blob) {
                             blobDisplay->promoteBlob(id, blob);
                         },
-                        [blobDisplay](std::size_t id, const tarsier::Blob& blob) {
+                        [&](std::size_t id, const tarsier::Blob& blob) {
                             blobDisplay->updateBlob(id, blob);
                         },
-                        [blobDisplay](std::size_t id, const tarsier::Blob& blob) {
+                        [&](std::size_t id, const tarsier::Blob& blob) {
                             blobDisplay->demoteBlob(id, blob);
                         },
-                        [hiddenBlobDisplay](std::size_t id, const tarsier::Blob& blob) {
+                        [&](std::size_t id, const tarsier::Blob& blob) {
                             hiddenBlobDisplay->promoteBlob(id, blob);
                         },
-                        [hiddenBlobDisplay](std::size_t id, const tarsier::Blob& blob) {
+                        [&](std::size_t id, const tarsier::Blob& blob) {
                             hiddenBlobDisplay->updateBlob(id, blob);
                         },
-                        [hiddenBlobDisplay](std::size_t id, const tarsier::Blob& blob) {
+                        [&](std::size_t id, const tarsier::Blob& blob) {
                             hiddenBlobDisplay->demoteBlob(id, blob);
                         },
-                        [blobDisplay, hiddenBlobDisplay](std::size_t id, const tarsier::Blob& blob) {
+                        [&](std::size_t id, const tarsier::Blob& blob) {
                             blobDisplay->deleteBlob(id, blob);
                             hiddenBlobDisplay->deleteBlob(id, blob);
                         }
                     ),
-                    [changeDetectionDisplay](sepia::ChangeDetection changeDetection) -> void {
-                        changeDetectionDisplay->push(changeDetection);
+                    [&](sepia::DvsEvent dvsEvent) -> void {
+                        changeDetectionDisplay->push(dvsEvent);
                     }
                 )
             ),

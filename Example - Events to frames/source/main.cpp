@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
     QQuickView view;
     view.setFormat(format);
     view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl("qrc:/main.qml"));
+    view.setSource(QUrl::fromLocalFile("../../source/main.qml"));
     view.show();
 
     auto changeDetectionDisplay = view.rootObject()->findChild<chameleon::ChangeDetectionDisplay*>("changeDetectionDisplay");
@@ -43,34 +43,27 @@ int main(int argc, char *argv[]) {
     auto firstTimestampSet = false;
     std::size_t frameIndex = 0;
 
-    auto eventStreamObservable = sepia::make_eventStreamObservable(
+    auto eventStreamObservable = sepia::make_sepiaEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
-            [
-                firstTimestamp,
-                firstTimestampSet,
-                frameIndex,
-                changeDetectionDisplay,
-                logarithmicDisplay,
-                frameGenerator
-            ](sepia::ChangeDetection changeDetection) mutable -> void {
+            [&](sepia::DvsEvent dvsEvent) mutable -> void {
                 if (!firstTimestampSet) {
                     firstTimestampSet = true;
-                    firstTimestamp = changeDetection.timestamp;
+                    firstTimestamp = dvsEvent.timestamp;
                 }
-                if (changeDetection.timestamp - firstTimestamp >= 20000 * frameIndex) {
+                if (dvsEvent.timestamp - firstTimestamp >= 20000 * frameIndex) {
                     frameGenerator->saveFrameTo(std::string("/Users/Bob/Desktop/frames/") + std::to_string(frameIndex) + ".png");
                     const auto discards = logarithmicDisplay->discards();
                     std::cout << "Frame " << frameIndex << ": black discard: " << discards.x() << ", " << "whiteDiscard: " << discards.y() << std::endl;
                     ++frameIndex;
                 }
-                changeDetectionDisplay->push(changeDetection);
+                changeDetectionDisplay->push(dvsEvent);
             },
             tarsier::make_stitch<sepia::ThresholdCrossing, ExposureMeasurement, 304, 240>(
                 [](sepia::ThresholdCrossing secondThresholdCrossing, uint64_t timeDelta) -> ExposureMeasurement {
                     return ExposureMeasurement{secondThresholdCrossing.x, secondThresholdCrossing.y, timeDelta};
                 },
-                [logarithmicDisplay](ExposureMeasurement exposureMeasurement) -> void {
+                [&](ExposureMeasurement exposureMeasurement) -> void {
                     logarithmicDisplay->push(exposureMeasurement);
                 }
             )

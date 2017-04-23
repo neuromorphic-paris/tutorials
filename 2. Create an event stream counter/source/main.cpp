@@ -8,7 +8,7 @@ int main() {
 
     auto eventStreamObservable = sepia::make_atisEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
-        [count, lastTimestamp](sepia::AtisEvent event) mutable -> void {
+        [&](sepia::AtisEvent event) -> void {
             ++count;
             if (event.timestamp >= lastTimestamp + 100000) {
                 std::cout << (count * 10) << " events / second" << std::endl;
