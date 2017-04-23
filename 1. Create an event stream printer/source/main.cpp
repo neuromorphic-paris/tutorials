@@ -3,8 +3,8 @@
 #include <iostream>
 
 /// handleEvent is an event callback for an event stream observable.
-void handleEvent(sepia::Event event) {
-    if (event.isThresholdCrossing) {
+void handleEvent(sepia::AtisEvent atisEvent) {
+    if (atisEvent.isThresholdCrossing) {
         std::cout << "|";
     } else {
         std::cout << "-";
@@ -16,7 +16,7 @@ void handleEvent(sepia::Event event) {
 void handleException(std::exception_ptr) {}
 
 int main() {
-    auto eventStreamObservable = sepia::make_eventStreamObservable("/Users/Bob/Desktop/recording.es", handleEvent, handleException);
+    auto eventStreamObservable = sepia::make_atisEventStreamObservable("/Users/Bob/Desktop/recording.es", handleEvent, handleException);
 
     for (;;) {}
 
