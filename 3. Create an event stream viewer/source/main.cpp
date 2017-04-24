@@ -34,7 +34,7 @@ int main(int argc, char *argv[]) {
     auto changeDetectionDisplay = view.rootObject()->findChild<chameleon::ChangeDetectionDisplay*>("changeDetectionDisplay");
     auto logarithmicDisplay = view.rootObject()->findChild<chameleon::LogarithmicDisplay*>("logarithmicDisplay");
 
-    auto eventStreamObservable = sepia::make_atisEventStreamObservable(
+    auto atisEventStreamObservable = sepia::make_atisEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
             [&](sepia::DvsEvent dvsEvent) -> void {
