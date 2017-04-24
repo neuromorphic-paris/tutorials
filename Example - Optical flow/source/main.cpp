@@ -4,7 +4,7 @@
 #include <chameleon/backgroundCleaner.hpp>
 #include <chameleon/changeDetectionDisplay.hpp>
 #include <chameleon/flowDisplay.hpp>
-#include <QGuiApplication>
+#include <QtGui/QGuiApplication>
 #include <QtQuick/QQuickView>
 
 /// FlowEvent represents the parameters of an optical flow update.
@@ -30,8 +30,8 @@ int main(int argc, char *argv[]) {
     format.setProfile(QSurfaceFormat::CoreProfile);
     QQuickView view;
     view.setFormat(format);
+    view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl::fromLocalFile("../../source/main.qml"));
-    view.setSource(QUrl("qrc:/main.qml"));
     view.show();
 
     auto changeDetectionDisplay = view.rootObject()->findChild<chameleon::ChangeDetectionDisplay*>("changeDetectionDisplay");

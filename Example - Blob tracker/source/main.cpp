@@ -5,7 +5,7 @@
 #include <chameleon/backgroundCleaner.hpp>
 #include <chameleon/changeDetectionDisplay.hpp>
 #include <chameleon/blobDisplay.hpp>
-#include <QGuiApplication>
+#include <QtGui/QGuiApplication>
 #include <QQmlApplicationEngine>
 
 int main(int argc, char *argv[]) {

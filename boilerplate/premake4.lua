@@ -33,7 +33,7 @@ solution 'boilerplate'
             print(string.char(27) .. '[32m' .. mocFile .. ' was successfully pre-compiled' .. string.char(27) .. '[0m')
         end
         files {'build/moc/**.h', 'build/moc/**.cpp', 'source/**.qml'}
-        includedirs {qtIncludeDirectory, qtIncludeDirectory .. '/QtGui', qtIncludeDirectory .. '/QtQml'}
+        includedirs {qtIncludeDirectory, qtIncludeDirectory .. '/QtQml'}
         configuration 'linux'
             libdirs {qtLibDirectory}
             links {'Qt5Core', 'Qt5Gui', 'Qt5Qml', 'Qt5Quick'}

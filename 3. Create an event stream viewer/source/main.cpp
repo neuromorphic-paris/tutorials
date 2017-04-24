@@ -3,7 +3,7 @@
 #include <chameleon/backgroundCleaner.hpp>
 #include <chameleon/changeDetectionDisplay.hpp>
 #include <chameleon/logarithmicDisplay.hpp>
-#include <QGuiApplication>
+#include <QtGui/QGuiApplication>
 #include <QtQuick/QQuickView>
 
 /// ExposureMeasurement holds the parameters of an exposure measurement.

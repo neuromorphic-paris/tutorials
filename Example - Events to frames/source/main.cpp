@@ -4,7 +4,7 @@
 #include <chameleon/changeDetectionDisplay.hpp>
 #include <chameleon/logarithmicDisplay.hpp>
 #include <chameleon/frameGenerator.hpp>
-#include <QGuiApplication>
+#include <QtGui/QGuiApplication>
 #include <QtQuick/QQuickView>
 
 #include <iostream>
