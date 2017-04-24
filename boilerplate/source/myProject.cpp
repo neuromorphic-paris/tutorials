@@ -3,7 +3,7 @@
 #include <sepia.hpp>
 #include <chameleon/backgroundCleaner.hpp>
 #include <chameleon/changeDetectionDisplay.hpp>
-#include <QGuiApplication>
+#include <QtGui/QGuiApplication>
 #include <QtQuick/QQuickView>
 
 int main(int argc, char *argv[]) {
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     auto changeDetectionDisplay = view.rootObject()->findChild<chameleon::ChangeDetectionDisplay*>("changeDetectionDisplay");
 
     auto eventStreamObservable = sepia::make_eventStreamObservable(
-        "/Users/Alex/idv/recordings/test12.es",
+        "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
             make_mySeriousEventHandler<sepia::ChangeDetection, 304, 240>(
                 2 * M_PI / 5e6,
@@ -53,9 +53,7 @@ int main(int argc, char *argv[]) {
             ),
             [](sepia::ThresholdCrossing) -> void {}
         ),
-        [](std::exception_ptr) {},
-        sepia::EventStreamObservable::Dispatch::synchronouslyButSkipOffset,
-        []() -> bool {return true;}
+        [](std::exception_ptr) {}
     );
 
     return app.exec();
