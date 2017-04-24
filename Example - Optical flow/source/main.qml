@@ -25,7 +25,6 @@ Item {
         id: backgroundCleaner
         width: item.width
         height: item.height
-        color: "#333333"
     }
 
     ChangeDetectionDisplay {
@@ -34,7 +33,6 @@ Item {
         width: item.width
         height: item.height
         canvasSize: "304x240"
-        backgroundColor: "#333333"
     }
 
     FlowDisplay {

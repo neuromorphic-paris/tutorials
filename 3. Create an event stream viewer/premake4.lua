@@ -1,8 +1,8 @@
-solution 'boilerplate'
+solution 'eventStreamViewer'
     configurations {'Release', 'Debug'}
     location 'build'
 
-    project 'boilerplate'
+    project 'eventStreamViewer'
 
         -- General settings
         kind 'ConsoleApp'
@@ -14,6 +14,7 @@ solution 'boilerplate'
         local mocFiles = { -- must contain Chameleon components paths
             '/usr/local/include/chameleon/backgroundCleaner.hpp',
             '/usr/local/include/chameleon/changeDetectionDisplay.hpp',
+            '/usr/local/include/chameleon/logarithmicDisplay.hpp',
         }
         local mocCommand = '/usr/lib/x86_64-linux-gnu/qt5/bin/moc' -- must point to the moc executable
         local qtIncludeDirectory = '/usr/include/x86_64-linux-gnu/qt5' -- must point to the directory containing Qt's headers
