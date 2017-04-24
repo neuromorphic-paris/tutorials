@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
     auto eventStreamObservable = sepia::make_sepiaEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
-            [&](sepia::DvsEvent dvsEvent) mutable -> void {
+            [&](sepia::DvsEvent dvsEvent) -> void {
                 if (!firstTimestampSet) {
                     firstTimestampSet = true;
                     firstTimestamp = dvsEvent.timestamp;
