@@ -6,13 +6,13 @@ int main() {
     std::size_t count = 0;
     uint64_t lastTimestamp = 0;
 
-    auto eventStreamObservable = sepia::make_atisEventStreamObservable(
+    auto atisEventStreamObservable = sepia::make_atisEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
-        [&](sepia::AtisEvent event) -> void {
+        [count, lastTimestamp](sepia::AtisEvent atisEvent) mutable -> void {
             ++count;
-            if (event.timestamp >= lastTimestamp + 100000) {
+            if (atisEvent.timestamp >= lastTimestamp + 100000) {
                 std::cout << (count * 10) << " events / second" << std::endl;
-                lastTimestamp = event.timestamp;
+                lastTimestamp = atisEvent.timestamp;
                 count = 0;
             }
         },

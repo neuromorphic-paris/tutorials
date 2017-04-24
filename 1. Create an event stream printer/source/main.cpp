@@ -16,7 +16,11 @@ void handleEvent(sepia::AtisEvent atisEvent) {
 void handleException(std::exception_ptr) {}
 
 int main() {
-    auto eventStreamObservable = sepia::make_atisEventStreamObservable("/Users/Bob/Desktop/recording.es", handleEvent, handleException);
+    auto atisEventStreamObservable = sepia::make_atisEventStreamObservable(
+        "/Users/Bob/Desktop/recording.es",
+        handleEvent,
+        handleException
+    );
 
     for (;;) {}
 

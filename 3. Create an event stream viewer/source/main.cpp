@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
     auto eventStreamObservable = sepia::make_atisEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
-            [changeDetectionDisplay](sepia::DvsEvent dvsEvent) -> void {
+            [&](sepia::DvsEvent dvsEvent) -> void {
                 changeDetectionDisplay->push(dvsEvent);
             },
             tarsier::make_stitch<sepia::ThresholdCrossing, ExposureMeasurement, 304, 240>(
