@@ -8,7 +8,7 @@
 #include <QtGui/QGuiApplication>
 #include <QQmlApplicationEngine>
 
-int main(int argc, char *argv[]) {
+int main(int argc, char* argv[]) {
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<chameleon::BackgroundCleaner>("BackgroundCleaner", 1, 0, "BackgroundCleaner");
