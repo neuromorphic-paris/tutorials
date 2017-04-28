@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
     auto blobDisplay = view.rootObject()->findChild<chameleon::BlobDisplay*>("blobDisplay");
     auto hiddenBlobDisplay = view.rootObject()->findChild<chameleon::BlobDisplay*>("hiddenBlobDisplay");
 
-    auto eventStreamObservable = sepia::make_atisEventStreamObservable(
+    auto atisEventStreamObservable = sepia::make_atisEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
             tarsier::make_maskIsolated<sepia::DvsEvent, 304, 240, 10000>(

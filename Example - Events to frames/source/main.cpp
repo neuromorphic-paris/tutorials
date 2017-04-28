@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
     auto firstTimestampSet = false;
     std::size_t frameIndex = 0;
 
-    auto eventStreamObservable = sepia::make_sepiaEventStreamObservable(
+    auto atisEventStreamObservable = sepia::make_sepiaEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
             [&](sepia::DvsEvent dvsEvent) -> void {

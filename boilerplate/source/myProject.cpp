@@ -25,10 +25,10 @@ int main(int argc, char* argv[]) {
 
     auto changeDetectionDisplay = view.rootObject()->findChild<chameleon::ChangeDetectionDisplay*>("changeDetectionDisplay");
 
-    auto eventStreamObservable = sepia::make_eventStreamObservable(
+    auto atisEventStreamObservable = sepia::make_atisEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
-            make_mySeriousEventHandler<sepia::ChangeDetection, 304, 240>(
+            make_mySeriousEventHandler<sepia::DvsEvent, 304, 240>(
                 2 * M_PI / 5e6,
 
                 // This lambda function is a function handler as well!
@@ -36,18 +36,18 @@ int main(int argc, char* argv[]) {
                 // Lambda functions are easier to write than standalone event handlers such as mySeriousEventHandler.
                 // However they are not re-usable and require global variables to hold a state.
                 // As such, lambda functions should be used only for fast prototyping or to push events to the Chameleon library's displays.
-                [&](sepia::ChangeDetection changeDetection) -> void {
+                [&](sepia::DvsEvent dvsEvent) -> void {
                     const auto xCenter = 152.0;
                     const auto yCenter = 120.0;
-                    const auto xDelta = changeDetection.x - xCenter;
-                    const auto yDelta = changeDetection.y - yCenter;
+                    const auto xDelta = dvsEvent.x - xCenter;
+                    const auto yDelta = dvsEvent.y - yCenter;
                     const auto expansion = std::exp(-std::hypot(xDelta, yDelta) / 120) + 1;
                     const auto x = xCenter + expansion * xDelta;
                     const auto y = yCenter + expansion * yDelta;
                     if (x < 304 && x >= 0 && y < 240 && y >= 0) {
-                        changeDetection.x = static_cast<std::size_t>(x);
-                        changeDetection.y = static_cast<std::size_t>(y);
-                        changeDetectionDisplay->push(changeDetection);
+                        dvsEvent.x = static_cast<std::size_t>(x);
+                        dvsEvent.y = static_cast<std::size_t>(y);
+                        dvsEventDisplay->push(dvsEvent);
                     }
                 }
             ),
