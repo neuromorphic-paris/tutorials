@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
         }
     );
 
-    auto eventStreamObservable = sepia::make_sepiaEventStreamObservable(
+    auto atisEventStreamObservable = sepia::make_atisEventStreamObservable(
         "/Users/Bob/Desktop/recording.es",
         sepia::make_split(
             tarsier::make_maskIsolated<sepia::DvsEvent, 304, 240, 1000>(

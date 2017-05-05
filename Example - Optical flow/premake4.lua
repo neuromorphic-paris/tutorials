@@ -33,7 +33,7 @@ solution 'opticalFlow'
             end
             print(string.char(27) .. '[32m' .. mocFile .. ' was successfully pre-compiled' .. string.char(27) .. '[0m')
         end
-        files {'build/moc/**.h', 'build/moc/**.cpp', 'source/**.qml'}
+        files {mocDirectory .. '/**.h', mocDirectory .. '/**.cpp', 'source/**.qml'}
         includedirs {qtIncludeDirectory, qtIncludeDirectory .. '/QtQml'}
         configuration 'linux'
             libdirs {qtLibDirectory}
