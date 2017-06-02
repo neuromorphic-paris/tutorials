@@ -6,6 +6,7 @@
 #include <chameleon/frameGenerator.hpp>
 #include <QtGui/QGuiApplication>
 #include <QtQuick/QQuickView>
+#include <QtCore/QFileInfo>
 
 #include <iostream>
 
@@ -29,10 +30,9 @@ int main(int argc, char* argv[]) {
     format.setStencilBufferSize(8);
     format.setVersion(3, 3);
     format.setProfile(QSurfaceFormat::CoreProfile);
-    QQuickView view;
+    QQuickView view(QUrl::fromLocalFile(QFileInfo("../../source/main.qml").absoluteFilePath()));
     view.setFormat(format);
     view.setResizeMode(QQuickView::SizeRootObjectToView);
-    view.setSource(QUrl::fromLocalFile("../../source/main.qml"));
     view.show();
 
     auto changeDetectionDisplay = view.rootObject()->findChild<chameleon::ChangeDetectionDisplay*>("changeDetectionDisplay");
