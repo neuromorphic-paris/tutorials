@@ -1,8 +1,8 @@
-solution 'eventStreamViewer'
+solution 'AtisCameraStream'
     configurations {'Release', 'Debug'}
     location 'build'
 
-    project 'eventStreamViewer'
+    project 'AtisCameraStream'
 
         -- General settings
         kind 'ConsoleApp'
