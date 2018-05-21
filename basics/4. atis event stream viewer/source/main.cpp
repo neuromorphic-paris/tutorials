@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
     auto logarithmicDisplay = view.rootObject()->findChild<chameleon::LogarithmicDisplay*>("logarithmicDisplay");
 
     auto atisEventStreamObservable = sepia::make_atisEventStreamObservable(
-        "/Users/Bob/Desktop/recording.es",
+        "/Users/Alex/idv/reallyGoodBidule/figures/test12.es",
         sepia::make_split(
             [&](sepia::DvsEvent dvsEvent) -> void {
                 changeDetectionDisplay->push(dvsEvent);
@@ -49,7 +49,10 @@ int main(int argc, char* argv[]) {
                 }
             )
         ),
-        [](std::exception_ptr) {}
+        [](std::exception_ptr) {},
+        []() {
+            return true;
+        }
     );
 
     return app.exec();

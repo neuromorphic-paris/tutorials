@@ -1,0 +1,75 @@
+[submodule "basics/1. dvs event stream printer/third_party/sepia"]
+	path = basics/1. dvs event stream printer/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "basics/2. dvs event stream counter/third_party/sepia"]
+	path = basics/2. dvs event stream counter/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "basics/3. flow averager/third_party/sepia"]
+	path = basics/3. flow averager/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "basics/3. flow averager/third_party/tarsier"]
+	path = basics/3. flow averager/third_party/tarsier
+	url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "basics/4. atis event stream viewer/third_party/sepia"]
+	path = basics/4. atis event stream viewer/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "basics/4. atis event stream viewer/third_party/tarsier"]
+	path = basics/4. atis event stream viewer/third_party/tarsier
+	url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "basics/4. atis event stream viewer/third_party/chameleon"]
+	path = basics/4. atis event stream viewer/third_party/chameleon
+	url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "boilerplate/third_party/sepia"]
+	path = boilerplate/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "boilerplate/third_party/tarsier"]
+	path = boilerplate/third_party/tarsier
+	url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "boilerplate/third_party/chameleon"]
+	path = boilerplate/third_party/chameleon
+	url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "sandbox/third_party/sepia"]
+	path = sandbox/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "sandbox/third_party/tarsier"]
+	path = sandbox/third_party/tarsier
+	url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "sandbox/third_party/chameleon"]
+	path = sandbox/third_party/chameleon
+	url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "examples/blob tracker/third_party/sepia"]
+	path = examples/blob tracker/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "examples/blob tracker/third_party/tarsier"]
+	path = examples/blob tracker/third_party/tarsier
+	url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "examples/blob tracker/third_party/chameleon"]
+	path = examples/blob tracker/third_party/chameleon
+	url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "examples/events to frames/third_party/sepia"]
+	path = examples/events to frames/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "examples/events to frames/third_party/tarsier"]
+	path = examples/events to frames/third_party/tarsier
+	url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "examples/events to frames/third_party/chameleon"]
+	path = examples/events to frames/third_party/chameleon
+	url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "examples/live tweaking/third_party/sepia"]
+	path = examples/live tweaking/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "examples/live tweaking/third_party/tarsier"]
+	path = examples/live tweaking/third_party/tarsier
+	url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "examples/live tweaking/third_party/chameleon"]
+	path = examples/live tweaking/third_party/chameleon
+	url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "examples/optical flow/third_party/sepia"]
+	path = examples/optical flow/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "examples/optical flow/third_party/tarsier"]
+	path = examples/optical flow/third_party/tarsier
+	url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "examples/optical flow/third_party/chameleon"]
+	path = examples/optical flow/third_party/chameleon
+	url = https://github.com/neuromorphic-paris/chameleon.git
