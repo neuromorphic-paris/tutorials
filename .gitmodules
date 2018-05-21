@@ -1,75 +1,66 @@
-[submodule "basics/1. dvs event stream printer/third_party/sepia"]
-	path = basics/1. dvs event stream printer/third_party/sepia
-	url = https://github.com/neuromorphic-paris/sepia.git
-[submodule "basics/2. dvs event stream counter/third_party/sepia"]
-	path = basics/2. dvs event stream counter/third_party/sepia
-	url = https://github.com/neuromorphic-paris/sepia.git
-[submodule "basics/3. flow averager/third_party/sepia"]
-	path = basics/3. flow averager/third_party/sepia
-	url = https://github.com/neuromorphic-paris/sepia.git
-[submodule "basics/3. flow averager/third_party/tarsier"]
-	path = basics/3. flow averager/third_party/tarsier
-	url = https://github.com/neuromorphic-paris/tarsier.git
-[submodule "basics/4. atis event stream viewer/third_party/sepia"]
-	path = basics/4. atis event stream viewer/third_party/sepia
-	url = https://github.com/neuromorphic-paris/sepia.git
-[submodule "basics/4. atis event stream viewer/third_party/tarsier"]
-	path = basics/4. atis event stream viewer/third_party/tarsier
-	url = https://github.com/neuromorphic-paris/tarsier.git
-[submodule "basics/4. atis event stream viewer/third_party/chameleon"]
-	path = basics/4. atis event stream viewer/third_party/chameleon
-	url = https://github.com/neuromorphic-paris/chameleon.git
 [submodule "boilerplate/third_party/sepia"]
-	path = boilerplate/third_party/sepia
-	url = https://github.com/neuromorphic-paris/sepia.git
+    path = boilerplate/third_party/sepia
+    url = https://github.com/neuromorphic-paris/sepia.git
 [submodule "boilerplate/third_party/tarsier"]
-	path = boilerplate/third_party/tarsier
-	url = https://github.com/neuromorphic-paris/tarsier.git
+    path = boilerplate/third_party/tarsier
+    url = https://github.com/neuromorphic-paris/tarsier.git
 [submodule "boilerplate/third_party/chameleon"]
-	path = boilerplate/third_party/chameleon
-	url = https://github.com/neuromorphic-paris/chameleon.git
-[submodule "sandbox/third_party/sepia"]
-	path = sandbox/third_party/sepia
-	url = https://github.com/neuromorphic-paris/sepia.git
-[submodule "sandbox/third_party/tarsier"]
-	path = sandbox/third_party/tarsier
-	url = https://github.com/neuromorphic-paris/tarsier.git
-[submodule "sandbox/third_party/chameleon"]
-	path = sandbox/third_party/chameleon
-	url = https://github.com/neuromorphic-paris/chameleon.git
-[submodule "examples/blob tracker/third_party/sepia"]
-	path = examples/blob tracker/third_party/sepia
-	url = https://github.com/neuromorphic-paris/sepia.git
-[submodule "examples/blob tracker/third_party/tarsier"]
-	path = examples/blob tracker/third_party/tarsier
-	url = https://github.com/neuromorphic-paris/tarsier.git
-[submodule "examples/blob tracker/third_party/chameleon"]
-	path = examples/blob tracker/third_party/chameleon
-	url = https://github.com/neuromorphic-paris/chameleon.git
-[submodule "examples/events to frames/third_party/sepia"]
-	path = examples/events to frames/third_party/sepia
-	url = https://github.com/neuromorphic-paris/sepia.git
-[submodule "examples/events to frames/third_party/tarsier"]
-	path = examples/events to frames/third_party/tarsier
-	url = https://github.com/neuromorphic-paris/tarsier.git
-[submodule "examples/events to frames/third_party/chameleon"]
-	path = examples/events to frames/third_party/chameleon
-	url = https://github.com/neuromorphic-paris/chameleon.git
-[submodule "examples/live tweaking/third_party/sepia"]
-	path = examples/live tweaking/third_party/sepia
-	url = https://github.com/neuromorphic-paris/sepia.git
-[submodule "examples/live tweaking/third_party/tarsier"]
-	path = examples/live tweaking/third_party/tarsier
-	url = https://github.com/neuromorphic-paris/tarsier.git
-[submodule "examples/live tweaking/third_party/chameleon"]
-	path = examples/live tweaking/third_party/chameleon
-	url = https://github.com/neuromorphic-paris/chameleon.git
-[submodule "examples/optical flow/third_party/sepia"]
-	path = examples/optical flow/third_party/sepia
-	url = https://github.com/neuromorphic-paris/sepia.git
-[submodule "examples/optical flow/third_party/tarsier"]
-	path = examples/optical flow/third_party/tarsier
-	url = https://github.com/neuromorphic-paris/tarsier.git
-[submodule "examples/optical flow/third_party/chameleon"]
-	path = examples/optical flow/third_party/chameleon
-	url = https://github.com/neuromorphic-paris/chameleon.git
+    path = boilerplate/third_party/chameleon
+    url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "basics/1_dvs_event_stream_printer/third_party/sepia"]
+    path = basics/1_dvs_event_stream_printer/third_party/sepia
+    url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "basics/2_dvs_event_stream_counter/third_party/sepia"]
+    path = basics/2_dvs_event_stream_counter/third_party/sepia
+    url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "basics/3_flow_averager/third_party/sepia"]
+    path = basics/3_flow_averager/third_party/sepia
+    url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "basics/3_flow_averager/third_party/tarsier"]
+    path = basics/3_flow_averager/third_party/tarsier
+    url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "basics/4_atis_event_stream_viewer/third_party/sepia"]
+    path = basics/4_atis_event_stream_viewer/third_party/sepia
+    url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "basics/4_atis_event_stream_viewer/third_party/tarsier"]
+    path = basics/4_atis_event_stream_viewer/third_party/tarsier
+    url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "basics/4_atis_event_stream_viewer/third_party/chameleon"]
+    path = basics/4_atis_event_stream_viewer/third_party/chameleon
+    url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "examples/blob_tracker/third_party/sepia"]
+    path = examples/blob_tracker/third_party/sepia
+    url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "examples/blob_tracker/third_party/tarsier"]
+    path = examples/blob_tracker/third_party/tarsier
+    url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "examples/blob_tracker/third_party/chameleon"]
+    path = examples/blob_tracker/third_party/chameleon
+    url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "examples/events_to_frames/third_party/sepia"]
+    path = examples/events_to_frames/third_party/sepia
+    url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "examples/events_to_frames/third_party/tarsier"]
+    path = examples/events_to_frames/third_party/tarsier
+    url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "examples/events_to_frames/third_party/chameleon"]
+    path = examples/events_to_frames/third_party/chameleon
+    url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "examples/live_tweaking/third_party/sepia"]
+    path = examples/live_tweaking/third_party/sepia
+    url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "examples/live_tweaking/third_party/tarsier"]
+    path = examples/live_tweaking/third_party/tarsier
+    url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "examples/live_tweaking/third_party/chameleon"]
+    path = examples/live_tweaking/third_party/chameleon
+    url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "examples/optical_flow/third_party/sepia"]
+    path = examples/optical_flow/third_party/sepia
+    url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "examples/optical_flow/third_party/tarsier"]
+    path = examples/optical_flow/third_party/tarsier
+    url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "examples/optical_flow/third_party/chameleon"]
+    path = examples/optical_flow/third_party/chameleon
+    url = https://github.com/neuromorphic-paris/chameleon.git
