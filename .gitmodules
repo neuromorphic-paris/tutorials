@@ -1,12 +1,3 @@
-[submodule "boilerplate/third_party/sepia"]
-    path = boilerplate/third_party/sepia
-    url = https://github.com/neuromorphic-paris/sepia.git
-[submodule "boilerplate/third_party/tarsier"]
-    path = boilerplate/third_party/tarsier
-    url = https://github.com/neuromorphic-paris/tarsier.git
-[submodule "boilerplate/third_party/chameleon"]
-    path = boilerplate/third_party/chameleon
-    url = https://github.com/neuromorphic-paris/chameleon.git
 [submodule "basics/1_dvs_event_stream_printer/third_party/sepia"]
     path = basics/1_dvs_event_stream_printer/third_party/sepia
     url = https://github.com/neuromorphic-paris/sepia.git

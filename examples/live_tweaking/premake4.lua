@@ -1,9 +1,9 @@
 local qt = require 'third_party/chameleon/qt'
 
-solution 'events_to_frames'
+solution 'live_tweaking'
     configurations {'release', 'debug'}
     location 'build'
-    project 'events_to_frames'
+    project 'live_tweaking'
         kind 'ConsoleApp'
         language 'C++'
         location 'build'
@@ -12,9 +12,7 @@ solution 'events_to_frames'
         linkoptions {'-std=c++11'}
         files(qt.moc({
             'third_party/chameleon/source/background_cleaner.hpp',
-            'third_party/chameleon/source/dvs_display.hpp',
-            'third_party/chameleon/source/t_delta_display.hpp',
-            'third_party/chameleon/source/frame_generator.hpp'},
+            'third_party/chameleon/source/dvs_display.hpp'},
             'build/moc'))
         includedirs(qt.includedirs())
         libdirs(qt.libdirs())

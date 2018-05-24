@@ -11,8 +11,11 @@ const auto filename = sepia::join({sepia::dirname(sepia::dirname(__FILE__)),
                                    "dvs.es"});
 
 int main() {
+    // declare variables to store a state
     std::size_t count = 0;
     uint64_t previous_t = 0;
+
+    // create the event handling pipeline
     auto observable = sepia::make_observable<sepia::type::dvs>(
         sepia::filename_to_ifstream(filename),
         [&](sepia::dvs_event dvs_event) {
@@ -24,6 +27,8 @@ int main() {
             }
         },
         [](std::exception_ptr) -> void {});
+
+    // loop forever
     for (;;) {
     }
     return 0;

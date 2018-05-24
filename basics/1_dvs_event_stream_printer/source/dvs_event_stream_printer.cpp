@@ -26,8 +26,11 @@ void handle_event(sepia::dvs_event dvs_event) {
 void handle_exception(std::exception_ptr) {}
 
 int main(int argc, char* argv[]) {
+    // create the event handling pipeline
     auto observable =
         sepia::make_observable<sepia::type::dvs>(sepia::filename_to_ifstream(filename), handle_event, handle_exception);
+
+    // loop forever
     for (;;) {
     }
     return 0;
