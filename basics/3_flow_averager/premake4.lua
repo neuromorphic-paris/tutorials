@@ -8,6 +8,7 @@ solution 'flow_averager'
         files {'source/*.cpp'}
         buildoptions {'-std=c++11'}
         linkoptions {'-std=c++11'}
+        defines {'SEPIA_COMPILER_WORKING_DIRECTORY="' .. project().location .. '"'}
         configuration 'release'
             targetdir 'build/release'
             defines {'NDEBUG'}

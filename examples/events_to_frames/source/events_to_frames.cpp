@@ -1,10 +1,10 @@
 #include "../third_party/chameleon/source/background_cleaner.hpp"
 #include "../third_party/chameleon/source/dvs_display.hpp"
-#include "../third_party/chameleon/source/t_delta_display.hpp"
 #include "../third_party/chameleon/source/frame_generator.hpp"
+#include "../third_party/chameleon/source/t_delta_display.hpp"
 #include "../third_party/sepia/source/sepia.hpp"
-#include "../third_party/tarsier/source/stitch.hpp"
 #include "../third_party/tarsier/source/replicate.hpp"
+#include "../third_party/tarsier/source/stitch.hpp"
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
@@ -77,20 +77,15 @@ int main(int argc, char* argv[]) {
                 }
             },
             sepia::make_split<sepia::type::atis>(
-                [&](sepia::dvs_event dvs_event) {
-                    dvs_display->push(dvs_event);
-                },
+                [&](sepia::dvs_event dvs_event) { dvs_display->push(dvs_event); },
                 tarsier::make_stitch<sepia::threshold_crossing, exposure_measurement>(
                     header.width,
                     header.height,
                     [](sepia::threshold_crossing threshold_crossing, uint64_t t_delta) -> exposure_measurement {
                         return {t_delta, threshold_crossing.x, threshold_crossing.y};
                     },
-                    [&](exposure_measurement exposure_measurement) { t_delta_display->push(exposure_measurement); }))
-        ),
-        [&](std::exception_ptr) {
-            app.quit();
-        });
+                    [&](exposure_measurement exposure_measurement) { t_delta_display->push(exposure_measurement); }))),
+        [&](std::exception_ptr) { app.quit(); });
 
     // run the Qt Application
     return app.exec();
