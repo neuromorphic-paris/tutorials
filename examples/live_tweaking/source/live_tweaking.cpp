@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
     // create a qml/c++ bridge
     std::atomic<uint64_t> temporal_window;
     QQmlPropertyMap parameters;
-    parameters.insert("temporal_window", temporal_window.load(std::memory_order_acquire));
+    parameters.insert("temporal_window", static_cast<qulonglong>(temporal_window.load(std::memory_order_acquire)));
     QQmlPropertyMap::connect(
         &parameters, &QQmlPropertyMap::valueChanged, &parameters, [&](const QString&, const QVariant& value) {
             temporal_window.store(value.toUInt(), std::memory_order_relaxed);

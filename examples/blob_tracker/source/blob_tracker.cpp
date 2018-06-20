@@ -16,9 +16,9 @@ const auto filename = sepia::join(
 struct blob {
     float x;
     float y;
-    float squared_sigma_x;
+    float sigma_x_squared;
     float sigma_xy;
-    float squared_sigma_y;
+    float sigma_y_squared;
 } __attribute__((packed));
 
 int main(int argc, char* argv[]) {
@@ -68,9 +68,9 @@ int main(int argc, char* argv[]) {
             tarsier::make_track_blob<sepia::dvs_event, blob>(
                 initial_blob.x,
                 initial_blob.y,
-                initial_blob.squared_sigma_x,
+                initial_blob.sigma_x_squared,
                 initial_blob.sigma_xy,
-                initial_blob.squared_sigma_y,
+                initial_blob.sigma_y_squared,
                 0.99,
                 0.999,
                 [](sepia::dvs_event dvs_event,
@@ -78,8 +78,8 @@ int main(int argc, char* argv[]) {
                    float y,
                    float squared_sigma_x,
                    float sigma_xy,
-                   float squared_sigma_y) -> blob {
-                    return {x, y, squared_sigma_x, sigma_xy, squared_sigma_y};
+                   float sigma_y_squared) -> blob {
+                    return {x, y, sigma_x_squared, sigma_xy, sigma_y_squared};
                 },
                 [&](blob blob) { blob_display->update(0, blob); })),
         [](std::exception_ptr) {},
