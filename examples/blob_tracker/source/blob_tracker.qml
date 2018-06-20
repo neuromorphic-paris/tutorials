@@ -1,6 +1,6 @@
 R""(
     import Chameleon 1.0
-    import QtQuick 2.3
+    import QtQuick 2.7
     import QtQuick.Window 2.2
     Window {
         id: window

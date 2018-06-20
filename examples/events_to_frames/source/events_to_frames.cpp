@@ -1,7 +1,7 @@
 #include "../third_party/chameleon/source/background_cleaner.hpp"
+#include "../third_party/chameleon/source/delta_t_display.hpp"
 #include "../third_party/chameleon/source/dvs_display.hpp"
 #include "../third_party/chameleon/source/frame_generator.hpp"
-#include "../third_party/chameleon/source/delta_t_display.hpp"
 #include "../third_party/sepia/source/sepia.hpp"
 #include "../third_party/tarsier/source/replicate.hpp"
 #include "../third_party/tarsier/source/stitch.hpp"

@@ -76,7 +76,7 @@ int main(int argc, char* argv[]) {
                 [](sepia::dvs_event dvs_event,
                    float x,
                    float y,
-                   float squared_sigma_x,
+                   float sigma_x_squared,
                    float sigma_xy,
                    float sigma_y_squared) -> blob {
                     return {x, y, sigma_x_squared, sigma_xy, sigma_y_squared};
