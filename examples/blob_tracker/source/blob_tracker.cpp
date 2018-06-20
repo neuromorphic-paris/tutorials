@@ -1,6 +1,6 @@
 #include "../third_party/chameleon/source/background_cleaner.hpp"
-#include "../third_party/chameleon/source/dvs_display.hpp"
 #include "../third_party/chameleon/source/blob_display.hpp"
+#include "../third_party/chameleon/source/dvs_display.hpp"
 #include "../third_party/sepia/source/sepia.hpp"
 #include "../third_party/tarsier/source/replicate.hpp"
 #include "../third_party/tarsier/source/track_blob.hpp"
@@ -9,13 +9,8 @@
 #include <QtQml/QQmlContext>
 
 /// filename points to the Event Stream file to read.
-const auto filename = sepia::join({sepia::dirname(sepia::dirname(__FILE__)),
-                                   "third_party",
-                                   "sepia",
-                                   "third_party",
-                                   "event_stream",
-                                   "examples",
-                                   "dvs.es"});
+const auto filename = sepia::join(
+    {sepia::dirname(SEPIA_DIRNAME), "third_party", "sepia", "third_party", "event_stream", "examples", "dvs.es"});
 
 /// blob contains the parameters of a Gaussian blob.
 struct blob {
@@ -69,9 +64,7 @@ int main(int argc, char* argv[]) {
     auto observable = sepia::make_observable<sepia::type::dvs>(
         sepia::filename_to_ifstream(filename),
         tarsier::make_replicate<sepia::dvs_event>(
-            [&](sepia::dvs_event dvs_event) {
-                dvs_display->push(dvs_event);
-            },
+            [&](sepia::dvs_event dvs_event) { dvs_display->push(dvs_event); },
             tarsier::make_track_blob<sepia::dvs_event, blob>(
                 initial_blob.x,
                 initial_blob.y,
@@ -80,16 +73,17 @@ int main(int argc, char* argv[]) {
                 initial_blob.squared_sigma_y,
                 0.99,
                 0.999,
-                [](sepia::dvs_event dvs_event, float x, float y, float squared_sigma_x, float sigma_xy, float squared_sigma_y) -> blob {
+                [](sepia::dvs_event dvs_event,
+                   float x,
+                   float y,
+                   float squared_sigma_x,
+                   float sigma_xy,
+                   float squared_sigma_y) -> blob {
                     return {x, y, squared_sigma_x, sigma_xy, squared_sigma_y};
                 },
-                [&](blob blob) {
-                    blob_display->update(0, blob);
-                }
-            )
-        ),
+                [&](blob blob) { blob_display->update(0, blob); })),
         [](std::exception_ptr) {},
-        []() {return true;});
+        []() { return true; });
 
     // run the Qt Application
     return app.exec();

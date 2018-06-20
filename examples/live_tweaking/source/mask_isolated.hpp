@@ -12,7 +12,11 @@ namespace tarsier {
     template <typename Event, typename HandleEvent>
     class mask_isolated {
         public:
-        mask_isolated(uint16_t width, uint16_t height, std::atomic<uint64_t>& temporal_window, HandleEvent handle_event) :
+        mask_isolated(
+            uint16_t width,
+            uint16_t height,
+            std::atomic<uint64_t>& temporal_window,
+            HandleEvent handle_event) :
             _width(width),
             _height(height),
             _temporal_window(temporal_window),
@@ -45,8 +49,11 @@ namespace tarsier {
 
     /// make_mask_isolated creates a mask_isolated from a functor.
     template <typename Event, typename HandleEvent>
-    mask_isolated<Event, HandleEvent>
-    make_mask_isolated(uint16_t width, uint16_t height, std::atomic<uint64_t>& temporal_window, HandleEvent handle_event) {
+    mask_isolated<Event, HandleEvent> make_mask_isolated(
+        uint16_t width,
+        uint16_t height,
+        std::atomic<uint64_t>& temporal_window,
+        HandleEvent handle_event) {
         return mask_isolated<Event, HandleEvent>(
             width, height, temporal_window, std::forward<HandleEvent>(handle_event));
     }

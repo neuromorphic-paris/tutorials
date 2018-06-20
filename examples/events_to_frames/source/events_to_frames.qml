@@ -14,7 +14,7 @@ R""(
             repeat: true
             onTriggered: {
                 dvs_display.trigger_draw();
-                t_delta_display.trigger_draw();
+                delta_t_display.trigger_draw();
             }
         }
         BackgroundCleaner {
@@ -38,13 +38,13 @@ R""(
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 canvas_size: Qt.size(header_width, header_height)
             }
-            TDeltaDisplay {
-                objectName: "t_delta_display"
-                id: t_delta_display
+            DeltaTDisplay {
+                objectName: "delta_t_display"
+                id: delta_t_display
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                canvas_size: Qt.size(header_width, Height)
+                canvas_size: Qt.size(header_width, header_height)
             }
         }
     }

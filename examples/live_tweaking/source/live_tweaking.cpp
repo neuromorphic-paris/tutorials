@@ -1,21 +1,16 @@
-#include "mask_isolated.hpp"
 #include "../third_party/chameleon/source/background_cleaner.hpp"
 #include "../third_party/chameleon/source/dvs_display.hpp"
 #include "../third_party/sepia/source/sepia.hpp"
 #include "../third_party/tarsier/source/track_blob.hpp"
+#include "mask_isolated.hpp"
+#include <QQmlPropertyMap>
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
-#include <QQmlPropertyMap>
 
 /// filename points to the Event Stream file to read.
-const auto filename = sepia::join({sepia::dirname(sepia::dirname(__FILE__)),
-                                   "third_party",
-                                   "sepia",
-                                   "third_party",
-                                   "event_stream",
-                                   "examples",
-                                   "dvs.es"});
+const auto filename = sepia::join(
+    {sepia::dirname(SEPIA_DIRNAME), "third_party", "sepia", "third_party", "event_stream", "examples", "dvs.es"});
 
 int main(int argc, char* argv[]) {
     // read the header
@@ -37,9 +32,10 @@ int main(int argc, char* argv[]) {
     std::atomic<uint64_t> temporal_window;
     QQmlPropertyMap parameters;
     parameters.insert("temporal_window", temporal_window.load(std::memory_order_acquire));
-    QQmlPropertyMap::connect(&parameters, &QQmlPropertyMap::valueChanged, &parameters, [&](const QString&, const QVariant& value) {
-        temporal_window.store(value.toUInt(), std::memory_order_relaxed);
-    });
+    QQmlPropertyMap::connect(
+        &parameters, &QQmlPropertyMap::valueChanged, &parameters, [&](const QString&, const QVariant& value) {
+            temporal_window.store(value.toUInt(), std::memory_order_relaxed);
+        });
     application_engine.rootContext()->setContextProperty("parameters", &parameters);
 
     // load the view and setup the window properties for OpenGL renderring
@@ -66,12 +62,9 @@ int main(int argc, char* argv[]) {
             header.width,
             header.height,
             temporal_window,
-            [&](sepia::dvs_event dvs_event) {
-                dvs_display->push(dvs_event);
-            }
-        ),
+            [&](sepia::dvs_event dvs_event) { dvs_display->push(dvs_event); }),
         [](std::exception_ptr) {},
-        []() {return true;});
+        []() { return true; });
 
     // run the Qt Application
     return app.exec();

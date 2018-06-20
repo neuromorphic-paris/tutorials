@@ -2,20 +2,15 @@
 #include "../third_party/chameleon/source/dvs_display.hpp"
 #include "../third_party/chameleon/source/flow_display.hpp"
 #include "../third_party/sepia/source/sepia.hpp"
-#include "../third_party/tarsier/source/replicate.hpp"
 #include "../third_party/tarsier/source/compute_flow.hpp"
+#include "../third_party/tarsier/source/replicate.hpp"
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlApplicationEngine>
 #include <QtQml/QQmlContext>
 
 /// filename points to the Event Stream file to read.
-const auto filename = sepia::join({sepia::dirname(sepia::dirname(__FILE__)),
-                                   "third_party",
-                                   "sepia",
-                                   "third_party",
-                                   "event_stream",
-                                   "examples",
-                                   "dvs.es"});
+const auto filename = sepia::join(
+    {sepia::dirname(SEPIA_DIRNAME), "third_party", "sepia", "third_party", "event_stream", "examples", "dvs.es"});
 
 /// flow_event contains the parameters of a flow update.
 struct flow_event {
@@ -65,27 +60,21 @@ int main(int argc, char* argv[]) {
     auto observable = sepia::make_observable<sepia::type::dvs>(
         sepia::filename_to_ifstream(filename),
         tarsier::make_replicate<sepia::dvs_event>(
-            [&](sepia::dvs_event dvs_event) {
-                dvs_display->push(dvs_event);
-            },
+            [&](sepia::dvs_event dvs_event) { dvs_display->push(dvs_event); },
             sepia::make_split<sepia::type::dvs>(
                 tarsier::make_compute_flow<sepia::simple_event, flow_event>(
                     header.width,
                     header.height,
-                    3,    // spatial window's radius
-                    1e4,  // temporal window
+                    3,   // spatial window's radius
+                    1e4, // temporal window
                     8,   // minimum number of events in the spatio-temporal window required to trigger a flow event
                     [&](sepia::simple_event simple_event, float vx, float vy) -> flow_event {
                         return {simple_event.t, simple_event.x, simple_event.y, vx, vy};
                     },
-                    [&](flow_event flow_event) {
-                        flow_display->push(flow_event);
-                    }),
-                [](sepia::simple_event) {}
-            )
-        ),
+                    [&](flow_event flow_event) { flow_display->push(flow_event); }),
+                [](sepia::simple_event) {})),
         [](std::exception_ptr) {},
-        []() {return true;});
+        []() { return true; });
 
     // run the Qt Application
     return app.exec();
