@@ -5,8 +5,8 @@ R""(
     Window {
         id: window
         visible: true
-        width: Width
-        height: Height
+        width: header_width
+        height: header_height
         Timer {
             interval: 20
             running: true
@@ -25,14 +25,14 @@ R""(
             id: dvs_display
             width: window.width
             height: window.height
-            canvas_size: Qt.size(Width, Height)
+            canvas_size: Qt.size(header_width, header_height)
         }
         FlowDisplay {
             objectName: "flow_display"
             id: flow_display
             width: window.width
             height: window.height
-            canvas_size: Qt.size(Width, Height)
+            canvas_size: Qt.size(header_width, header_height)
             speed_to_length: 10000
         }
     }

@@ -9,13 +9,8 @@
 #include <QtQml/QQmlContext>
 
 /// filename points to the Event Stream file to read.
-const auto filename = sepia::join({sepia::dirname(sepia::dirname(__FILE__)),
-                                   "third_party",
-                                   "sepia",
-                                   "third_party",
-                                   "event_stream",
-                                   "examples",
-                                   "dvs.es"});
+const auto filename = sepia::join(
+    {sepia::dirname(SEPIA_DIRNAME), "third_party", "sepia", "third_party", "event_stream", "examples", "dvs.es"});
 
 int main(int argc, char* argv[]) {
     // read the header

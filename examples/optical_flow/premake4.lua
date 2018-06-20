@@ -20,6 +20,7 @@ solution 'optical_flow'
         links(qt.links())
         buildoptions(qt.buildoptions())
         linkoptions(qt.linkoptions())
+        defines {'SEPIA_COMPILER_WORKING_DIRECTORY="' .. project().location .. '"'}
         configuration 'release'
             targetdir 'build/release'
             defines {'NDEBUG'}

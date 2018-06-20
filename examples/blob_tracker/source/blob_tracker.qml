@@ -26,6 +26,12 @@ R""(
             width: window.width
             height: window.height
             canvas_size: Qt.size(header_width, header_height)
+            onPaintAreaChanged: {
+                blob_display.x = paint_area.x
+                blob_display.y = paint_area.y
+                blob_display.width = paint_area.width
+                blob_display.height = paint_area.height
+            }
         }
         BlobDisplay {
             objectName: "blob_display"
