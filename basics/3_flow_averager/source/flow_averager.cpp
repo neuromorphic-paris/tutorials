@@ -27,9 +27,9 @@ int main() {
             tarsier::make_compute_flow<sepia::simple_event, flow_event>(
                 header.width,
                 header.height,
-                2,   // spatial window's radius
-                1e6, // temporal window
-                10,  // minimum number of events in the spatio-temporal window required to trigger a flow event
+                2,      // spatial window's radius
+                100000, // temporal window
+                10,     // minimum number of events in the spatio-temporal window required to trigger a flow event
                 [](sepia::simple_event simple_event, float vx, float vy) -> flow_event {
                     return {simple_event.t, vx, vy};
                 },
