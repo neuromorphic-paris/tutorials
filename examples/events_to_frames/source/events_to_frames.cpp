@@ -14,11 +14,11 @@ const auto filename = sepia::join(
     {sepia::dirname(SEPIA_DIRNAME), "third_party", "sepia", "third_party", "event_stream", "examples", "atis.es"});
 
 /// exposure_measurement holds the parameters of an exposure measurement.
-struct exposure_measurement {
+SEPIA_PACK(struct exposure_measurement {
     uint64_t delta_t;
     uint16_t x;
     uint16_t y;
-} __attribute__((packed));
+});
 
 /// frame_duration is the time between two generated frames in microseconds.
 const uint64_t frame_duration = 50000;

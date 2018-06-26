@@ -7,11 +7,11 @@ const auto filename = sepia::join(
     {sepia::dirname(SEPIA_DIRNAME), "third_party", "sepia", "third_party", "event_stream", "examples", "dvs.es"});
 
 /// flow_event contains the parameters of a flow update.
-struct flow_event {
+SEPIA_PACK(struct flow_event {
     uint64_t t;
     float vx;
     float vy;
-} __attribute__((packed));
+});
 
 int main() {
     const auto header = sepia::read_header(sepia::filename_to_ifstream(filename));
