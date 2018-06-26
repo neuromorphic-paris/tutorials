@@ -13,13 +13,13 @@ const auto filename = sepia::join(
     {sepia::dirname(SEPIA_DIRNAME), "third_party", "sepia", "third_party", "event_stream", "examples", "dvs.es"});
 
 /// blob contains the parameters of a Gaussian blob.
-struct blob {
+SEPIA_PACK(struct blob {
     float x;
     float y;
     float sigma_x_squared;
     float sigma_xy;
     float sigma_y_squared;
-} __attribute__((packed));
+});
 
 int main(int argc, char* argv[]) {
     // read the header
@@ -71,8 +71,8 @@ int main(int argc, char* argv[]) {
                 initial_blob.sigma_x_squared,
                 initial_blob.sigma_xy,
                 initial_blob.sigma_y_squared,
-                0.99,
-                0.999,
+                0.99f,
+                0.999f,
                 [](sepia::dvs_event dvs_event,
                    float x,
                    float y,
