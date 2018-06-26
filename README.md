@@ -43,9 +43,8 @@ The clang-format tool is provided by Visual Studio.
 
 After changing the code, format the source files by running from the *tutorials* directory:
 ```sh
-for file in basics/*/source/*.cpp; do clang-format -i $file; done;
-for file in examples/*/source/*.hpp; do clang-format -i $file; done;
-for file in examples/*/source/*.cpp; do clang-format -i $file; done;
+for directory in basics/*; do cd $directory; for file in source/*.[hc]pp; do clang-format -i $file; done; cd ../..; done
+for directory in examples/*; do cd $directory; for file in source/*.[hc]pp; do clang-format -i $file; done; cd ../..; done
 ```
 
 __Windows__ users must run *Edit* > *Advanced* > *Format Document* from the Visual Studio menu instead.

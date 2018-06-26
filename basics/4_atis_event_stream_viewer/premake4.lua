@@ -8,8 +8,6 @@ solution 'atis_event_stream_viewer'
         language 'C++'
         location 'build'
         files {'source/*.qml', 'source/*.cpp'}
-        buildoptions {'-std=c++11'}
-        linkoptions {'-std=c++11'}
         files(qt.moc({
             'third_party/chameleon/source/background_cleaner.hpp',
             'third_party/chameleon/source/dvs_display.hpp',
@@ -31,3 +29,10 @@ solution 'atis_event_stream_viewer'
             flags {'Symbols'}
         configuration 'linux'
             links {'pthread'}
+            buildoptions {'-std=c++11'}
+            linkoptions {'-std=c++11'}
+        configuration 'macosx'
+            buildoptions {'-std=c++11'}
+            linkoptions {'-std=c++11'}
+        configuration 'windows'
+            files {'.clang-format'}
