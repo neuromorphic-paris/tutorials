@@ -55,3 +55,9 @@
 [submodule "examples/optical_flow/third_party/chameleon"]
     path = examples/optical_flow/third_party/chameleon
     url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "examples/buffered_wrapper/third_party/sepia"]
+	path = examples/buffered_wrapper/third_party/sepia
+	url = https://github.com/neuromorphic-paris/sepia.git
+[submodule "examples/buffered_wrapper/third_party/tarsier"]
+        path = examples/buffered_wrapper/third_party/tarsier
+        url = https://github.com/neuromorphic-paris/tarsier.git

@@ -1,4 +1,4 @@
-![tutorials](banner.png "The Tutorials banner")
+![banner](banner.png)
 
 Tutorials provides step-by-step guides to learn how to use the [Sepia](https://github.com/neuromorphic-paris/sepia), [Tarsier](https://github.com/neuromorphic-paris/tarsier) and [Chameleon](https://github.com/neuromorphic-paris/chameleon) libraries.
 
