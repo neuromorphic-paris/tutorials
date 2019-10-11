@@ -61,3 +61,12 @@
 [submodule "examples/buffered_wrapper/third_party/tarsier"]
 	path = examples/buffered_wrapper/third_party/tarsier
 	url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "examples/dvs_viewer/third_party/tarsier"]
+	path = examples/dvs_viewer/third_party/tarsier
+	url = https://github.com/neuromorphic-paris/tarsier.git
+[submodule "examples/dvs_viewer/third_party/chameleon"]
+	path = examples/dvs_viewer/third_party/chameleon
+	url = https://github.com/neuromorphic-paris/chameleon.git
+[submodule "examples/dvs_viewer/third_party/dvs_sepia"]
+	path = examples/dvs_viewer/third_party/dvs_sepia
+	url = https://github.com/neuromorphic-paris/dvs_sepia.git
