@@ -4,6 +4,22 @@ Tutorials provides step-by-step guides to learn how to use the [Sepia](https://g
 
 The tutorials are held in the [wiki](https://github.com/neuromorphic-paris/tutorials/wiki). This repository contains the result files produced during the tutorials.
 
+If you find this framework useful, you can cite this work:
+```
+@article{Marcireau_2020,
+    title={Sepia, Tarsier, and Chameleon: A Modular C++ Framework for Event-Based Computer Vision},
+    volume={13},
+    ISSN={1662-453X},
+    url={http://dx.doi.org/10.3389/fnins.2019.01338},
+    DOI={10.3389/fnins.2019.01338},
+    journal={Frontiers in Neuroscience},
+    publisher={Frontiers Media SA},
+    author={Marcireau, Alexandre and Ieng, Sio-Hoi and Benosman, Ryad},
+    year={2020},
+    month={Jan},
+}
+```
+
 # install
 
 You do not need to clone this repository to follow the tutorials. Nonetheless, if you want to download the tutorials' result files, run the command:
