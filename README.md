@@ -1,9 +1,3 @@
-![banner](banner.png)
-
-Tutorials provides step-by-step guides to learn how to use the [Sepia](https://github.com/neuromorphic-paris/sepia), [Tarsier](https://github.com/neuromorphic-paris/tarsier) and [Chameleon](https://github.com/neuromorphic-paris/chameleon) libraries.
-
-The tutorials are held in the [wiki](https://github.com/neuromorphic-paris/tutorials/wiki). This repository contains the result files produced during the tutorials.
-
 If you find this framework useful, you can cite this work:
 ```
 @article{Marcireau_2020,
@@ -19,6 +13,12 @@ If you find this framework useful, you can cite this work:
     month={Jan},
 }
 ```
+
+![banner](banner.png)
+
+Tutorials provides step-by-step guides to learn how to use the [Sepia](https://github.com/neuromorphic-paris/sepia), [Tarsier](https://github.com/neuromorphic-paris/tarsier) and [Chameleon](https://github.com/neuromorphic-paris/chameleon) libraries.
+
+The tutorials are held in the [wiki](https://github.com/neuromorphic-paris/tutorials/wiki). This repository contains the result files produced during the tutorials.
 
 # install
 
