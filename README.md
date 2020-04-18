@@ -1,4 +1,4 @@
-If you find this framework useful, you can cite this work:
+If you find the framework useful, you can cite this work:
 ```
 @article{Marcireau_2020,
     title={Sepia, Tarsier, and Chameleon: A Modular C++ Framework for Event-Based Computer Vision},
